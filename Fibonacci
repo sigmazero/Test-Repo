@@ -1,0 +1,51 @@
+
+#include <iostream>
+using namespace std;
+
+void bubbleSort(int arr[], int);
+
+int main()
+{
+	int array[5] = { 16, 2, 77, 40, 12071 };
+	bubbleSort(array, 5);
+	cout << endl;
+	cout << "----------------------\n";
+	cout << "Sorted array elements using bubble sort \n";
+	cout << "----------------------\n";
+	for (int j = 0; j<5; j++)
+		cout << array[j] << endl;
+}
+
+//Algorithm reviewed and obtained from http://www.algolist.net
+void bubbleSort(int arr[], int n)
+{
+	bool swapped = true;
+	int j = 0;
+	int tmp;
+	while (swapped)
+	{
+		swapped = false;
+		j++;
+		for (int i = 0; i < n - j; i++)
+		{
+			if (arr[i] > arr[i + 1])
+			{
+				tmp = arr[i];
+				arr[i] = arr[i + 1];
+				arr[i + 1] = tmp;
+				swapped = true;
+			}
+		}
+	}
+}
+
+
+/*
+Explaination reviewed from CPE 212:
+Bubble Sort follows the concept that the "lighter" elements bubble to the top. 
+Suppose the unsorted elements are in variables A1 through AN
+For each pass i for 1 <= i <= N - 1,
+-Bubble the smallest unsorted element in the range Ai through AN up to position Ai by swapping as needed
+- Now A1 through Ai contain the i smallest elements
+- Shrink the unsorted porition of the array by incrementing i across the range listed above
+*/
