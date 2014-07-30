@@ -1,0 +1,44 @@
+
+#include <iostream>
+using namespace std;
+
+void insertionSort(int arr[], int);
+
+int main()
+{
+	int array[5] = { 16, 2, 77, 40, 12071 };
+	insertionSort(array, 5);
+	cout << endl;
+	cout << "----------------------\n";
+	cout << "Sorted array elements using Insertion sort \n";
+	cout << "----------------------\n";
+	for (int j = 0; j<5; j++)
+		cout << array[j] << endl;
+}
+
+//Algorithm reviewed and obtained from http://www.algolist.net
+void insertionSort(int arr[], int length) 
+{
+	int i, j, tmp;
+	for (i = 1; i < length; i++) 
+	{
+		j = i;
+		while (j > 0 && arr[j - 1] > arr[j]) 
+		{
+			tmp = arr[j];
+			arr[j] = arr[j - 1];
+			arr[j - 1] = tmp;
+			j--;
+		}
+	}
+}
+
+/*
+Explaination reviewed from CPE 212:
+Insertionsort follows the concept to create in place a sorted list by taking the values and inserting them in order into the list
+Suppose the unsorted elements are in variables A1 through AN
+For each pass i for 1 <= i <= N-1,
+- Take the current element Ai and insert it into it proper position among the elements A1 through Ai-1
+- Now A1 through Ai contain the i smallest elements in sorted order
+- Repeat for each i listed above
+*/
